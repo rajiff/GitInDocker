@@ -5,10 +5,16 @@ services:
   git_in_docker:
     image: git_in_docker:latest
     build: .
+    # stdin_open: true # docker run -i
+    # tty: true # docker run -t
     volumes:
-      - ./ssh:/ssh
+      # You need to copy your github (or whichever host site) ed25519 ssh files to this folder and name it appropriately
+      - ./ssh:/root/.ssh
       - ./projects:/projects
-    command: ["git", "clone", "git@github.com:rajiff/GitInDocker.git"]
-    # command: ["git", "--help"]
+    environment:
+      # GIT_SSH_COMMAND: "ssh"
+      GIT_SSH_COMMAND: "ssh -vvv"
+      # GIT_SSH_COMMAND: "ssh -vvv -o \"StrictHostKeyChecking no\" -i /root/.ssh/id_ed25519"
+    command: ["git", "clone", "git@github.com:rajiff/GitInDocker.git", "/projects/"]
 
 # Try command `docker run --rm --name git_in_docker git_in_docker:latest git --version` to run from command line directly
