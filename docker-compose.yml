@@ -1,14 +1,12 @@
 version: '3.9'
 
-  services:
+services:
 
-    git_in_docker:
-      image: git_in_docker:latest
-      build: .
-      restart: always
-      volumes:
-        - ./ssh:/ssh
-        - ./projects:/projects
-      command: ["git", "clone", "--help"]
-
-
+  git_in_docker:
+    image: git_in_docker:latest
+    build: .
+    volumes:
+      - ./ssh:/ssh
+      - ./projects:/projects
+    command: ["git", "clone", "git@github.com:rajiff/GitInDocker.git"]
+    # command: ["git", "--help"]

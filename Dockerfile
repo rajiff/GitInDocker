@@ -9,6 +9,6 @@ WORKDIR /home/gituser
 
 RUN git --version
 
-ENTRYPOINT ["/bin/sh", "-c", "git"]
+ENTRYPOINT ["/bin/sh", "-c"]
 
-CMD ["--help"]
+CMD ["git", "--version"]
