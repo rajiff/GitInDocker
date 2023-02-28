@@ -9,6 +9,7 @@ WORKDIR /home/gituser
 
 RUN git --version
 
-ENTRYPOINT ["/bin/sh", "-c"]
+# ENTRYPOINT ["/bin/sh", "-c"]
+# CMD ["git", "--version"]
 
-CMD ["git", "--version"]
+CMD ["echo", "USAGE: pass a command to run"]

@@ -10,3 +10,5 @@ services:
       - ./projects:/projects
     command: ["git", "clone", "git@github.com:rajiff/GitInDocker.git"]
     # command: ["git", "--help"]
+
+# Try command `docker run --rm --name git_in_docker git_in_docker:latest git --version` to run from command line directly
